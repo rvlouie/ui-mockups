@@ -2,8 +2,42 @@
 
   font-size: 16px;
 
+  --evergreen: #004d40;
+  --pine: #00746a;
+  --green-machine: #009689;
   --money: #1ea69a;
+  --matcha: #20bdaf;
   --caribbean: #52dccb;
+  --seafoam: #b7f1ea;
+  --minty-fresh: #dffff9;
+  --sage: #f1fffc;
+  --toothpaste: #f9fefd;
+  --poppy: #e9573d;
+  --melon: #f17e69;
+  --peach: #ffb393;
+  --apricat: #fbebe0;
+  --sun-kissed: #fff6f0;
+  --sunshine-daisy: #ffad00;
+  --lemon-meringue: #ffc525;
+  --yellow-submarine: #ffdd80;
+  --butter: #ffeab2;
+  --zest: #fff7e0;
+  --royal: #204bbf;
+  --cobalt: #1f6cde;
+  --whale: #0f9fff;
+  --dreamy: #91d0ff;
+  --icy: #f4faff;
+  --pillows: #e4f4ff;
+  --regal: #2021ab;
+  --grape: #4c3edc;
+  --snozzberry: #6172e9;
+  --lavender: #b1c1f8;
+  --purple-rain: #eeefff;
+  --red-carpet: #b30000;
+  --red-herring: #c00;
+  --rose: #fcc;
+  --tickled-pink: #ffe5e5;
+  --blush: #fff5f5;
   --squid-ink: #212338;
   --midnight: #292c44;
   --dark-and-stormy: #343854;
@@ -178,11 +212,17 @@ button {
   background-color: var(--money);
   border-radius: var(--sp-2xl);
   padding: var(--sp-xs) var(--sp-m);
-  transition: background-color var(--transition-timing);
+  transition: background-color var(--transition-timing), box-shadow var(--transition-timing);
 }
 
 button:hover {
-  background-color: var(--caribbean);
+  background: linear-gradient(
+    286.9deg,
+    var(--caribbean) 10.04%,
+    var(--matcha) 89.66%
+  );
+  box-shadow: 0px 4px 16px rgba(32, 39, 45, 0.2);
+  transition: background-color 2s ease-in-out;
 }
 
 .input {
