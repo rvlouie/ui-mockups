@@ -1,0 +1,539 @@
+<html>
+  <style>
+
+    :root {
+
+      font-size: 16px;
+
+      --money: #1ea69a;
+      --caribbean: #52dccb;
+      --squid-ink: #212338;
+      --midnight: #292c44;
+      --dark-and-stormy: #343854;
+      --plumette: #4a4e6d;
+      --slate: #6b6d7c;
+      --nebulous: #9294a0;
+      --concrete: #b9b9c0;
+      --magic: #cbcbd0;
+      --grey-area: #e2e2e9;
+      --subtle: #efeff5;
+      --fog: #f5f5f8;
+      --cloud: #fdfdfe;
+      --clinical: #fff;
+
+      --fs0: 1rem;
+      --lh0: 1.5rem;
+      --fs1: 1.125rem;
+      --lh1: 1.688rem;
+      --fs3: 1.424rem;
+      --lh3: 2.136rem;
+      --fs5: 1.802rem;
+      --lh5: 2.703rem;
+      --fs6: 2.027rem;
+      --lh6: 3.041rem;
+      --fs9: 2.887rem;
+      --lh9: 4.33rem;
+      --fs-1: 0.889rem;
+      --lh-1: 1.333rem;
+      --fs-2: 0.79rem;
+      --lh-2: 1.185rem;
+      --fs-3: 0.702rem;
+      --lh-3: 1.053rem;
+
+    }        
+
+    body {
+      padding: 50px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+    
+    h1, h2, h3, h4, h5, h6, p, li {
+      margin: 0;
+    }
+
+    button {
+      box-shadow: none;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      color: var(--clinical);
+      background-color: var(--money);
+      border-radius: 40px;
+      padding: 8px 24px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--caribbean);
+    }
+
+    .image-container {
+      background-image: url('me_dog.png');
+      background-position: center;
+      box-shadow: inset 0px 0px 0px 1px rgba(33,35,56,0.13);
+      border-radius: 8px;
+      overflow: hidden;
+      background-size: cover;
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      bottom: 0; 
+      right: 0; 
+    }
+
+    .heading3 {
+      font-weight: 600;
+      font-size:  var(--fs4);
+    }
+
+    .heading4 {
+      font-weight: 600;
+      font-size:  var(--fs3);
+      line-height: var(--lh3);
+    }
+
+    .bodyMain {
+      font-size: var(--fs-1);
+      line-height: var(--lh-1);
+    }
+
+    .bodyMainBold {
+      font-size: var(--fs-1);
+      line-height: var(--lh-1);
+      font-weight: 600;
+    }
+
+
+    .bodySmall {
+      font-size: var(--fs-2);
+      line-height: var(--lh-2);
+    }
+
+    .bodySmallBold {
+      font-size: var(--fs-2);
+      line-height: var(--lh-2);
+      font-weight: 600;
+    }
+
+    .card-wrapper-row {
+      padding: 24px;
+      box-shadow: inset 0px 0px 0px 1px var(--grey-area);
+      border-radius: 5px;
+      max-width: 890px;
+      margin: auto;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(auto, auto);
+      grid-gap: 16px;
+      grid-template-areas: 
+        "image header header"
+        "image description description"
+        "image cta pricing";
+    }
+
+    .card-wrapper-row--image-right {
+      grid-template-areas: 
+        "header header image"
+        "description description image"
+        "cta pricing image";
+    }
+
+    .card-wrapper-column {
+      padding: 24px;
+      box-shadow: inset 0px 0px 0px 1px var(--grey-area);
+      border-radius: 5px;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr;
+      grid-auto-rows: minmax(auto, auto);
+      grid-gap: 16px;
+      grid-template-areas: 
+        "image"
+        "header"
+        "description"
+        "cta"
+        "pricing";
+    }
+
+    .card-wrapper-column--image-bottom {
+      grid-template-areas: 
+        "header"
+        "description"
+        "cta"
+        "pricing"
+        "image";
+    }
+
+    .card-wrapper-column--image-middle {
+      grid-template-areas: 
+        "header"
+        "description"
+        "image"
+        "cta"
+        "pricing";
+    }
+
+    .card-wrapper-row--pricing-left {
+      grid-template-areas:
+        "image header header"
+        "image description description"
+        "image pricing cta";
+    }
+
+    .card-wrapper-row--course {
+      transition: box-shadow 0.2s;
+    }
+
+    .card-wrapper-row--course:hover {
+      cursor: pointer;
+      box-shadow: inset 0px 0px 0px 3px var(--grey-area);
+    }
+
+    .image{
+      grid-area: image;
+      width: 100%;
+      padding-top: 56.25%;
+      position: relative;
+    }
+
+    .image--current-card {
+      border-radius: 5px 5px 0 0;
+      width: calc(100% + 48px);
+      margin-left: -24px;
+      margin-top: -24px;
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .description {
+      grid-area: description;
+    }
+
+    .cta {
+      grid-area: cta;
+      position: relative;
+    }
+
+    .pricing {
+      grid-area: pricing;
+    }
+
+    .author-image {
+      background-image: url('me_dog.png');
+      background-position: center;
+      background-size: cover;
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      box-shadow: inset 0px 0px 0px 1px rgba(33,35,56,0.13);
+      overflow: hidden;
+      margin-right: 8px;
+    }
+
+    .column-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 24px;
+    }
+
+    .height-fit-content {
+      height: fit-content;
+    }
+
+    @media all and (max-width: 600px) {
+      .card-wrapper-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas: 
+        "image"
+        "header"
+        "description"
+        "cta"
+        "pricing";
+      }
+      .card-wrapper-row .pricing {
+        text-align: left;
+      }
+      .card-wrapper-row .cta {
+        justify-self: start;
+      }
+      .card-wrapper-row--image-bottom {
+        grid-template-areas: 
+        "header"
+        "description"
+        "cta"
+        "pricing"
+        "image";
+      }
+      .card-wrapper-row--image-inbetween {
+        grid-template-areas: 
+        "header"
+        "description"
+        "image"
+        "cta"
+        "pricing";
+      }
+      .column-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mb-m {
+      margin-bottom: 24px;
+    }
+
+    .mb-xl {
+      margin-bottom: 64px;
+    }
+
+    .text-align-center {
+      text-align: center;
+    }
+
+    .text-align-left {
+      text-align: left;
+    }
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    .justify-self-end{
+      justify-self: end;
+    }
+
+    .justify-self-center {
+      justify-self: center;
+    }
+
+    .flex-align-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .flex-align-start {
+      display: flex;
+      align-items: flex-start;
+    }
+
+  </style>
+  <body>
+    <div class="wrapper">
+        <div class="mb-xl">
+          <h1 class="text-align-center mb-m">Upsells</h1>
+          <div class="card-wrapper-row mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold">Buy me!</button>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--pricing-left mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold justify-self-end">Buy me!</button>
+            <div class="pricing text-align-left bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--image-bottom mb-m text-align-center">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold">Buy me!</button>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--image-inbetween mb-m text-align-right">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold">Buy me!</button>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--image-right mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold">Buy me!</button>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--image-right text-align-right mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <button class="cta bodyMainBold">Buy me!</button>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+        </div>
+
+        <div class="mb-xl">
+          <h1 class="text-align-center mb-m">Featured Courses</h1>
+          <h3 class="text-align-center mb-m">Row</h3>
+          <div class="card-wrapper-row card-wrapper-row--course mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--course card-wrapper-row--image-bottom mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+          <div class="card-wrapper-row card-wrapper-row--course card-wrapper-row--image-inbetween mb-m">
+            <div class="image">
+              <div class="image-container"></div>
+            </div>
+            <h4 class="header heading4 ">Check out my new coaching service!</h4>
+            <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+            <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+            <div class="pricing text-align-right bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+          </div>
+
+          <h3 class="text-align-center mb-m">Columns</h3>
+          <div class="column-grid">
+            <div class="card-wrapper-column card-wrapper-row--course mb-m">
+              <div class="image image--current-card">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-center mb-m">
+              <div class="image image--current-card">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-right mb-m">
+              <div class="image image--current-card">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-end"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+          </div>
+
+          <div class="column-grid mb-xl">
+            <div class="card-wrapper-column card-wrapper-row--course mb-m">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-center card-wrapper-column--image-bottom mb-m">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-right card-wrapper-column--image-middle mb-m">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-end"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+          </div>
+          <h3 class="text-align-center mb-m">Variable heights</h3>
+          <div class="column-grid mb-xl">
+            <div class="card-wrapper-column card-wrapper-row--course height-fit-content">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-center card-wrapper-column--image-bottom height-fit-content">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service! This title is disturbingly long because sometimes our creators are like that.</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph. And this is a lot more content as you can see. There are more lines of copy.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-right card-wrapper-column--image-middle height-fit-content">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4 ">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-end"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+          </div>
+          <h3 class="text-align-center mb-m">Static height</h3>
+          <p class="text-align-center mb-m">We're going to have to do the truncation with JS :(</p>
+          <div class="column-grid mb-xl">
+            <div class="card-wrapper-column card-wrapper-row--course">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-center card-wrapper-column--image-bottom">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4">Check out my new coaching service! This title is disturbingly long because sometimes our creators are like that.</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph. And this is a lot more content as you can see. There are more lines of copy.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-center"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+            <div class="card-wrapper-column card-wrapper-row--course text-align-right card-wrapper-column--image-middle">
+              <div class="image">
+                <div class="image-container"></div>
+              </div>
+              <h4 class="header heading4">Check out my new coaching service!</h4>
+              <p class="description bodyMain">This is body text for an upsell or a card. It is great. It is a description. Maybe in the future there will be more meaningful copy here, but this isn't it, nor should it be expected to be it. If you're expecting for this to be meaningful copy, well, you're either woefully ignorant of the status quo or you've deluded yourself into thinking that there would be anything of substance in this paragraph.</p>
+              <div class="cta bodyMainBold flex-align-center justify-self-end"><div class="author-image"></div> Author name</div>
+              <div class="pricing bodyMain"><span class="bodyMainBold">$600</span> per year, billed annually</div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
