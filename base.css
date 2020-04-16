@@ -167,6 +167,11 @@ select {
   margin-top: var(--sp-m);
 }
 
+.mt-s {
+  margin-top: var(--sp-s);
+}
+
+
 .mb-m {
   margin-bottom: var(--sp-m);
 }
@@ -177,6 +182,10 @@ select {
 
 .mt-xl {
   margin-top: var(--sp-xl);
+}
+
+.mr-2xs {
+  margin-right: var(--sp-2xs);
 }
 
 .mr-xs {
